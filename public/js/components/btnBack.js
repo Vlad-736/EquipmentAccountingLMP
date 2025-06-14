@@ -15,7 +15,7 @@ export default async function btnBack() {
     e.preventDefault();
     appEl.innerHTML = "";
 
-    fetchButtonsData.default("../data/btn.json").then((fetchButtonsData) => {
+    fetchButtonsData.default("./btn.json").then((fetchButtonsData) => {
       renderBtn.default(fetchButtonsData);
     });
   });

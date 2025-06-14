@@ -1,22 +1,36 @@
 .header {
+  padding: 30px 0 20px;
+  background-color: $color-nero;
+  border-radius: 0 0 40px 40px;
+  color: $color-white;
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  @include vp-767 {
+    padding: 10px 0 10px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding-bottom: 5px;
+    font-size: 18px;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: flex-end;
+  }
+
   &__title {
     font-weight: 700;
     font-size: 36px;
     line-height: 1.2;
-    padding: 0;
     margin: 0 0 5px;
 
-    @media (max-width: 1300px) {
-    }
-
-    @include vp-1023 {
-    }
-
-    @media (max-width: 900px) {
-    }
-
-    @include vp-767 {
-      font-size: 24px;
+    @media (max-width: 480px) {
+      font-size: 18px;
     }
   }
 
@@ -27,17 +41,13 @@
     padding: 0;
     margin: 0;
 
-    @media (max-width: 1300px) {
-    }
-
-    @include vp-1023 {
-    }
-
-    @media (max-width: 900px) {
-    }
-
     @include vp-767 {
       font-size: 12px;
     }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
   }
 }

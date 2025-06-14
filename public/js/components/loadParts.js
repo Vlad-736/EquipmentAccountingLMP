@@ -25,13 +25,35 @@ export default async function loadParts(type) {
     btnBackEl.classList.toggle("visually-hidden");
   }
   appEl.innerHTML = "";
+
+  // Массивы для хранения товаров в наличии и без
+  const availableParts = [];
+  const unavailableParts = [];
+
   snapshot.docs.forEach((doc) => {
     const part = doc.data();
+
     if (part.type === type) {
-      const cardEl = renderCard.default(part, doc.id);
-      appEl.appendChild(cardEl);
+      if (part.quantity > 0) {
+        availableParts.push({ part, id: doc.id });
+      } else {
+        unavailableParts.push({ part, id: doc.id });
+      }
     }
   });
+
+  // Сначала отрисовываем товары в наличии
+  availableParts.forEach(({ part, id }) => {
+    const cardEl = renderCard.default(part, id);
+    appEl.appendChild(cardEl);
+  });
+
+  // Затем — товары, которых нет в наличии
+  unavailableParts.forEach(({ part, id }) => {
+    const cardEl = renderCard.default(part, id);
+    appEl.appendChild(cardEl);
+  });
+
   const btnChangeQuantity = document.querySelectorAll(
     ".part-card__quantity-btn"
   );
@@ -42,7 +64,9 @@ export default async function loadParts(type) {
     element.addEventListener("click", async function (e) {
       e.preventDefault();
       const delta = Number(element.dataset.quantity);
-      const partRef = db.collection("varshavskoeShosseCollectionNew").doc(element.dataset.id);
+      const partRef = db
+        .collection("varshavskoeShosseCollectionNew")
+        .doc(element.dataset.id);
       try {
         const partSnap = await partRef.get();
         const part = partSnap.data();
@@ -71,7 +95,7 @@ export default async function loadParts(type) {
       // Проверка на отрицательное значение
       if (isNaN(newQuantity) || newQuantity < 0) {
         alert("Количество не может быть отрицательным");
-        element.value = ""
+        element.value = "";
         return;
       }
       try {

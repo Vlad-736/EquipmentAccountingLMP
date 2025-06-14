@@ -5,4 +5,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   fetchButtonsData.default("./btn.json").then((fetchButtonsData) => {
     renderBtn.default(fetchButtonsData);
   });
+
+  const btnBack = await import("./components/btnBack.js")
+  btnBack.default()
 });

@@ -132,7 +132,7 @@ export default function renderCard(part, docId) {
   const input = document.createElement("input");
   input.type = "number";
   input.min = "0"
-  input.placeholder = "Введите количество";
+  // input.placeholder = "Введите количество";
   input.className = "part-card__input input";
   input.dataset.id = docId;
 

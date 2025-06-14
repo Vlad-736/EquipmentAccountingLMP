@@ -637,7 +637,6 @@ a {
 }
 @media (max-width: 400px) {
   .part-card__input {
-    font-size: 10px;
     width: 100px;
   }
 }

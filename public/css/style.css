@@ -626,6 +626,12 @@ a {
   line-height: 1.2;
   font-weight: 500;
 }
+@media (max-width: 400px) {
+  .part-card__input {
+    font-size: 10px;
+    width: 120px;
+  }
+}
 
 .btn-back {
   position: fixed;

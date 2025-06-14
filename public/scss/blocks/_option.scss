@@ -1,0 +1,25 @@
+.option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background-color: $color-nero;
+  padding: 20px;
+  border-radius: 15px;
+  border-color: red;
+
+  &__show-filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+
+    background-color: $color-white;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  &__label {
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,9 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include vp-767 {
+    gap: 5px;
+  }
+}

@@ -131,6 +131,7 @@ export default function renderCard(part, docId) {
 
   const input = document.createElement("input");
   input.type = "number";
+  input.min = "0"
   input.placeholder = "Введите количество";
   input.className = "part-card__input input";
   input.dataset.id = docId;
@@ -141,10 +142,14 @@ export default function renderCard(part, docId) {
   minusBtn.dataset.id = docId;
   minusBtn.dataset.quantity = "-1";
 
-  btnWrapper.appendChild(plusBtn);
-  btnWrapper.appendChild(input);
-  btnWrapper.appendChild(minusBtn);
+  if (part.quantity <= 0) {
+    minusBtn.disabled = true;
+  }
 
+  btnWrapper.appendChild(minusBtn);
+  btnWrapper.appendChild(input);
+  btnWrapper.appendChild(plusBtn);
+  
   card.appendChild(btnWrapper);
 
   return card;

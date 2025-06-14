@@ -30,17 +30,47 @@ export default async function loadParts(type) {
   const availableParts = [];
   const unavailableParts = [];
 
-  snapshot.docs.forEach((doc) => {
-    const part = doc.data();
+  // Разделяем товары по наличию
+snapshot.docs.forEach((doc) => {
+  const part = doc.data();
 
-    if (part.type === type) {
-      if (part.quantity > 0) {
-        availableParts.push({ part, id: doc.id });
-      } else {
-        unavailableParts.push({ part, id: doc.id });
-      }
+  if (part.type === type) {
+    const item = { part, id: doc.id };
+
+    if (part.quantity > 0) {
+      availableParts.push(item);
+    } else {
+      unavailableParts.push(item);
     }
-  });
+  }
+});
+
+// Функция сортировки
+function compareBySizes(a, b) {
+  const fields = ["sizeone", "sizetwo", "sizethree"];
+
+  for (const field of fields) {
+    const aVal = a.part[field];
+    const bVal = b.part[field];
+
+    // Если оба значения есть — сравниваем по убыванию
+    if (aVal !== undefined && bVal !== undefined) {
+      if (aVal > bVal) return -1;
+      if (aVal < bVal) return 1;
+    }
+
+    // Если только одно значение есть — оно считается "больше"
+    if (aVal !== undefined && bVal === undefined) return -1;
+    if (aVal === undefined && bVal !== undefined) return 1;
+  }
+
+  // Если все поля отсутствуют или равны — считаем равными
+  return 0;
+}
+
+// Сортируем обе группы
+availableParts.sort(compareBySizes);
+unavailableParts.sort(compareBySizes);
 
   // Сначала отрисовываем товары в наличии
   availableParts.forEach(({ part, id }) => {

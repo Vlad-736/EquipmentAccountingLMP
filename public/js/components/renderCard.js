@@ -98,7 +98,7 @@ export default function renderCard(part, docId) {
     case "reversibleBeam":
       sizeOne.textContent = `Длинна: ${part.sizeone}`;
       sizeTwo.textContent = `Высота: ${part.sizetwo}`;
-      sizeThree.textContent = `Высота: ${part.sizethree}`;
+      sizeThree.textContent = `Ширина: ${part.sizethree}`;
       break;
 
     default:

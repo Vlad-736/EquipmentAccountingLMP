@@ -407,7 +407,9 @@ a {
   border: none;
   border-radius: 15px;
   padding: 15px;
-  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 500;
   background-color: #FFDE00;
   cursor: pointer;
   min-width: 50px;
@@ -416,6 +418,9 @@ a {
 @media (max-width: 480px) {
   .btn {
     padding: 5px;
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 14px;
   }
 }
 
@@ -526,7 +531,7 @@ a {
 }
 @media (max-width: 767px) {
   .type__description {
-    font-size: 8px;
+    font-size: 12px;
   }
 }
 .type__image {
@@ -635,10 +640,6 @@ a {
     font-size: 10px;
     width: 100px;
   }
-}
-
-.btn-back {
-  font-weight: 500;
 }
 
 .header {

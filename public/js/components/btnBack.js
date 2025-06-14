@@ -1,23 +1,16 @@
 const appEl = document.querySelector(".app");
-const containerEl = document.querySelector(".header__wrapper")
+const containerEl = document.querySelector(".header__wrapper");
 const fetchButtonsData = await import("./fetchButtonsData.js");
+const btnBackEl = document.querySelector(".btn-back");
 
-export default async function btnBack() {
+btnBackEl.addEventListener("click", async function (e) {
   const renderBtn = await import("./renderBtn.js");
+  e.preventDefault();
+  appEl.innerHTML = "";
 
-  const btnBack = document.createElement("button");
-  btnBack.className = "btn-back btn";
-  btnBack.textContent = "Назад";
+  btnBackEl.classList.toggle("visually-hidden");
 
-  containerEl.appendChild(btnBack);
-
-  btnBack.addEventListener("click", function (e) {
-    e.preventDefault();
-    appEl.innerHTML = "";
-    containerEl.removeChild(btnBack)
-
-    fetchButtonsData.default("./btn.json").then((fetchButtonsData) => {
-      renderBtn.default(fetchButtonsData);
-    });
+  fetchButtonsData.default("./btn.json").then((fetchButtonsData) => {
+    renderBtn.default(fetchButtonsData);
   });
-}
+});

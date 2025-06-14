@@ -14,6 +14,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 const appEl = document.querySelector(".app");
+const btnBackEl = document.querySelector(".btn-back");
 
 // Загрузка и отображение данных
 export default async function loadParts(type) {
@@ -22,6 +23,8 @@ export default async function loadParts(type) {
   window.scrollTo({
     top: 0,
   });
+
+  btnBackEl.classList.toggle("visually-hidden");
 
   appEl.innerHTML = "";
 
@@ -32,8 +35,6 @@ export default async function loadParts(type) {
       appEl.appendChild(cardEl);
     }
   });
-
-  btnBack.default();
 
   const btnChangeQuantity = document.querySelectorAll(
     ".part-card__quantity-btn"

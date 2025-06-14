@@ -9,14 +9,14 @@ admin.initializeApp({
 const db = admin.firestore();
 
 // Читаем JSON-файл
-const data = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
+const data = JSON.parse(fs.readFileSync('./output.json', 'utf8'));
 
 async function importData() {
   const batch = db.batch();
 
   data.forEach((item) => {
     // Создаем новый документ с автоматическим ID в коллекции "myCollection"
-    const docRef = db.collection('varshavskoeShosseCollectionNew').doc();
+    const docRef = db.collection('fiveStores').doc();
     batch.set(docRef, item);
   });
 

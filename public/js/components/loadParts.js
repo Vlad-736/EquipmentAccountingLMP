@@ -1,4 +1,5 @@
 const renderCard = await import("./renderCard.js");
+const locationShopName = document.querySelector('.location__shop-name');
 
 // Инициализация Firebase
 const firebaseConfig = {
@@ -17,6 +18,9 @@ const btnBackEl = document.querySelector(".btn-back");
 
 // Загрузка и отображение данных
 export default async function loadParts(type) {
+  
+  console.log(locationShopName.textContent);
+  
   const snapshot = await db.collection("varshavskoeShosseCollectionNew").get();
   window.scrollTo({
     top: 0,

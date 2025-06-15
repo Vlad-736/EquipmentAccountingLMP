@@ -40,10 +40,6 @@
     font-weight: 400;
     padding: 0;
     margin: 0;
-
-    @include vp-767 {
-      font-size: 12px;
-    }
   }
 
   &__wrapper {

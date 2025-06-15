@@ -465,10 +465,7 @@ a {
 .location {
   align-items: center;
   display: flex;
-  font-size: 14px;
-  font-weight: 400;
-  gap: 5px;
-  line-height: 19.6px;
+  gap: 10px;
   position: relative;
 }
 .location__shop {
@@ -508,12 +505,18 @@ a {
   min-width: 157px;
   padding: 16px 8px;
   position: absolute;
-  left: 100px;
+  left: 50px;
   top: calc(100% + 10px);
   transform: translateY(-20px);
   opacity: 0;
   pointer-events: none;
   transition: opacity ease-in 0.3s, transform ease-in 0.3s;
+}
+@media (max-width: 767px) {
+  .location__sublist {
+    padding: 16px;
+    gap: 20px;
+  }
 }
 .location__sublink {
   background-color: transparent;
@@ -531,6 +534,11 @@ a {
 }
 .location__sublink:hover, .location__sublink:focus-visible {
   color: #FFDE00;
+}
+@media (max-width: 767px) {
+  .location__sublink {
+    font-size: 14px;
+  }
 }
 
 .type__list {
@@ -762,11 +770,6 @@ a {
   font-weight: 400;
   padding: 0;
   margin: 0;
-}
-@media (max-width: 767px) {
-  .header__location {
-    font-size: 12px;
-  }
 }
 .header__wrapper {
   display: flex;

@@ -1,13 +1,9 @@
 .location {
   align-items: center;
   display: flex;
-  font-size: 14px;
-  font-weight: 400;
-  gap: 5px;
-  line-height: 19.6px;
+  gap: 10px;
   position: relative;
   
-
   $root: &;
 
   &__shop {
@@ -52,12 +48,17 @@
     min-width: 157px;
     padding: 16px 8px;
     position: absolute;
-    left: 100px;
+    left: 50px;
     top: calc(100% + 10px);
     transform: translateY(-20px);
     opacity: 0;
     pointer-events: none;
     transition: opacity $transition-300, transform $transition-300;
+
+    @include vp-767 {
+      padding: 16px;
+      gap: 20px;
+    }
   }
 
   &__sublink {
@@ -75,6 +76,10 @@
     &:hover,
     &:focus-visible {
       color: $color-golden-yellow;
+    }
+
+    @include vp-767 {
+      font-size: 14px;
     }
   }
 }

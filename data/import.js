@@ -2,7 +2,7 @@ const admin = require('firebase-admin');
 const fs = require('fs');
 
 // Инициализация Firebase Admin SDK
-const serviceAccount = require('./equipmentaccountinglmp-firebase-adminsdk-fbsvc-7ac77cd234.json');
+const serviceAccount = require('./equipmentaccountinglmp-firebase-adminsdk-fbsvc-0d934c31b7.json');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });

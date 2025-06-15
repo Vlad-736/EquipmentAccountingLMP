@@ -10,13 +10,14 @@
     align-items: center;
     background-color: transparent;
     color: $color-golden-yellow;
-    border: none;
+    border: 1px solid $color-white;
+    border-radius: 5px;
     display: flex;
     gap: 5px;
-    padding: 0;
+    padding: 5px;
     cursor: pointer;
     user-select: none;
-    transition: color $transition-300;
+    transition: color $transition-300, border-color $transition-300;
 
     &--active {
       + #{$root}__sublist {
@@ -28,11 +29,14 @@
 
     &--desactive {
       pointer-events: none;
+      color: $color-white-50;
+      border-color: $color-white-50;
     }
 
     &:hover,
     &:focus-visible {
       color: $color-white;
+      border-color: $color-golden-yellow;
     }
   }
 

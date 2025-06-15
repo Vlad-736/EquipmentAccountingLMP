@@ -14,7 +14,7 @@ const appEl = document.querySelector(".app");
 const btnBackEl = document.querySelector(".btn-back");
 
 // Загрузка и отображение данных
-export default async function loadParts(type) {
+export default async function renderCardList(type) {
   const shopName = locationShopName.textContent.trim();
   const storeKey = getStoreKeyFromShop.default(shopName);
 
@@ -54,6 +54,6 @@ export default async function loadParts(type) {
     appEl.appendChild(cardEl);
   });
 
-  btnChangeQuantity(storeKey, type, loadParts, db.default());
-  inputChangeQuantity(storeKey, type, loadParts, db.default());
+  btnChangeQuantity(storeKey, type, renderCardList, db.default());
+  inputChangeQuantity(storeKey, type, renderCardList, db.default());
 }

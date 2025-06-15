@@ -1,5 +1,5 @@
 const appEl = document.querySelector(".app");
-const loadParts = await import("./loadParts.js");
+const renderCard = await import("./renderCardList.js");
 
 // отрисовка кнопок
 export default function renderBtn(array) {
@@ -47,7 +47,7 @@ function clickBtn() {
     element.addEventListener("click", function (e) {
       e.preventDefault();
       
-      loadParts.default(element.dataset.atribute);
+      renderCard.default(element.dataset.atribute);
     });
   });
 }

@@ -5,7 +5,7 @@ export default function btnBack() {
   const btnBackEl = document.querySelector(".btn-back");
 
   btnBackEl.addEventListener("click", async function (e) {
-  const renderBtn = await import("./renderBtn.js");
+  const renderBtn = await import("./renderBtnType.js");
   e.preventDefault();
   appEl.innerHTML = "";
 

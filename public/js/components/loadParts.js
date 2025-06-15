@@ -1,14 +1,15 @@
 const renderCard = await import("./renderCard.js");
 const locationShopName = document.querySelector('.location__shop-name');
+console.log("API KEY:", process.env.REACT_APP_FIREBASE_API_KEY);
 
 // Инициализация Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyCxOJXpsgn-QbHJ1IXm3YTUfvmYyTapyJM",
-  authDomain: "equipmentaccountinglmp.firebaseapp.com",
-  projectId: "equipmentaccountinglmp",
-  storageBucket: "equipmentaccountinglmp.firebasestorage.app",
-  messagingSenderId: "662492962421",
-  appId: "1:662492962421:web:97e5158288d4766a8fa23c",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();

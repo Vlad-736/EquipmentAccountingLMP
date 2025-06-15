@@ -12,4 +12,10 @@ export default function choiseLocation() {
       locationShopName.textContent = element.textContent
     });
   });
+
+  document.addEventListener('click', function (event) {
+    if (!btnChoise.contains(event.target)) {
+      btnChoise.classList.remove("location__shop--active");
+    }
+  });
 }

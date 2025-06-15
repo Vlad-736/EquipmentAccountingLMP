@@ -1,8 +1,9 @@
 const appEl = document.querySelector(".app");
 const renderCard = await import("./renderCardList.js");
+const btnChoise = document.querySelector(".location__shop");
 
 // отрисовка кнопок
-export default function renderBtn(array) {
+export default function renderBtnType(array) {
   // Очистить контейнер перед отрисовкой
   appEl.innerHTML = "";
 
@@ -36,17 +37,16 @@ export default function renderBtn(array) {
 
   appEl.appendChild(containerEl);
 
-  // Вызов функции навешивания обработчиков
-  clickBtn();
+  clickBtnType();
 }
 
 // логика "передачи" типа оборудования для фильтра отрисовки
-function clickBtn() {
+function clickBtnType() {
   const btnTypeAll = document.querySelectorAll(".type__btn");
   btnTypeAll.forEach((element) => {
     element.addEventListener("click", function (e) {
       e.preventDefault();
-      
+      btnChoise.classList.toggle("location__shop--desactive");
       renderCard.default(element.dataset.atribute);
     });
   });

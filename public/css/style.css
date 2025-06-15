@@ -414,6 +414,10 @@ a {
   cursor: pointer;
   min-width: 50px;
   min-height: 50px;
+  transition: background-color ease-in 0.3s, color ease-in 0.3s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 @media (max-width: 480px) {
   .btn {
@@ -476,11 +480,21 @@ a {
   gap: 5px;
   padding: 0;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transition: color ease-in 0.3s;
 }
 .location__shop--active + .location__sublist {
   opacity: 1;
   transform: translateY(0);
   pointer-events: all;
+}
+.location__shop--desactive {
+  pointer-events: none;
+}
+.location__shop:hover, .location__shop:focus-visible {
+  color: #ffffff;
 }
 .location__sublist {
   background-color: #ffffff;
@@ -499,6 +513,7 @@ a {
   transform: translateY(-20px);
   opacity: 0;
   pointer-events: none;
+  transition: opacity ease-in 0.3s, transform ease-in 0.3s;
 }
 .location__sublink {
   background-color: transparent;
@@ -509,6 +524,10 @@ a {
   font-size: 12px;
   line-height: 16.8px;
   padding: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transition: color ease-in 0.3s;
 }
 .location__sublink:hover, .location__sublink:focus-visible {
   color: #FFDE00;
@@ -547,9 +566,10 @@ a {
 .type__item {
   display: flex;
   flex-direction: column;
-  background: #FFDE00;
+  background-color: #FFDE00;
   border-radius: 20px;
   padding: 10px;
+  transition: background-color ease-in 0.3s;
 }
 @media (max-width: 900px) {
   .type__item {
@@ -561,6 +581,9 @@ a {
     padding: 3px;
     border-radius: 5px;
   }
+}
+.type__item:hover, .type__item:focus-visible {
+  background-color: #1E1E1E;
 }
 .type__btn {
   display: flex;

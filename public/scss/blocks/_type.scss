@@ -29,9 +29,10 @@
   &__item {
     display: flex;
     flex-direction: column;
-    background: $color-golden-yellow;
+    background-color: $color-golden-yellow;
     border-radius: 20px;
     padding: 10px;
+    transition: background-color $transition-300;
 
     @media (max-width: 900px) {
       padding: 6px;
@@ -40,6 +41,11 @@
     @include vp-767 {
       padding: 3px;
       border-radius: 5px;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: $color-nero;;
     }
   }
 

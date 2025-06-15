@@ -5,10 +5,12 @@
   font-size: 16px;
   line-height: 1.2;
   font-weight: 500;
-  background-color: #FFDE00;
+  background-color: $color-golden-yellow;
   cursor: pointer;
   min-width: 50px;
   min-height: 50px;
+  transition: background-color $transition-300, color $transition-300;
+  user-select: none;
 
   @media (max-width: 480px) {
     padding: 5px;
